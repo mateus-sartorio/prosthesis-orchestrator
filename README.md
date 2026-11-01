@@ -42,7 +42,7 @@ docker compose exec mosquitto mosquitto_pub -h localhost -t prosthesis/logs -m '
 4. Query the stored samples in PostgreSQL:
 
 ```bash
-docker compose exec postgres psql -U prosthesis_user -d prosthesis_logger -c "SELECT run_id, t_ms, received_at, sensor_data FROM sensor_samples ORDER BY received_at DESC LIMIT 10;"
+docker compose exec postgres psql -U prosthesis_user -d prosthesis_orchestrator -c "SELECT run_id, t_ms, received_at, sensor_data FROM sensor_samples ORDER BY received_at DESC LIMIT 10;"
 ```
 
 ## AWS run
@@ -75,7 +75,7 @@ Run all pending migrations:
 python -m app.migrate
 ```
 
-docker compose exec postgres psql -U prosthesis_user -d prosthesis_logger -c "SELECT filename, applied_at FROM schema_migrations ORDER BY applied_at DESC;"
+docker compose exec postgres psql -U prosthesis_user -d prosthesis_orchestrator -c "SELECT filename, applied_at FROM schema_migrations ORDER BY applied_at DESC;"
 
 ## Configuration
 All config is done with environment variables in `.env`.

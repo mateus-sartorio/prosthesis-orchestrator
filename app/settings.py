@@ -44,7 +44,7 @@ class Settings:
         self.mqtt_tls = os.getenv("MQTT_TLS", "false").lower() == "true"
         self.db_host = os.getenv("DB_HOST", "localhost")
         self.db_port = int(os.getenv("DB_PORT", "5432"))
-        self.db_name = os.getenv("DB_NAME", "prosthesis_logger")
+        self.db_name = os.getenv("DB_NAME", "prosthesis_orchestrator")
         self.db_user = os.getenv("DB_USER", "prosthesis_user")
         self.db_password = os.getenv("DB_PASSWORD", "prosthesis_password")
         self.log_level = os.getenv("LOG_LEVEL", "INFO").upper()
